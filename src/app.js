@@ -1,21 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './components/login.jsx';
+import Page from './components/page.jsx';
 
-// const API = 'https://api.github.com';
-const headers = {
-	Accept: 'application/vnd.github.v3+json',
-	'Content-Type': 'application/json',
-};
-
-function addAuthToken(oAuthToken) {
-	headers.Authorization = `token ${oAuthToken}`;
-}
-
+const container = document.getElementsByTagName('main')[0];
 ReactDOM.render(
-	<Login
-		addToken={addAuthToken}
-		headers={headers}
-	/>,
-	document.getElementsByTagName('main')[0]
+	<Page/>,
+	container
 );

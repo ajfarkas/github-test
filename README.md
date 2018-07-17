@@ -1,5 +1,12 @@
 Welcome to the docs!
 
+# Building the App
+from the repo folder in the CLI:
+
+$ npm i
+
+$ npm run build
+
 # Running the App
 Access index.html in this folder in Chrome.
 

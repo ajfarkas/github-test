@@ -4,7 +4,8 @@
   "description": "Welcome to the docs!",
   "main": "app.js",
   "scripts": {
-    "bundle": "webpack"
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "watch": "./node_modules/webpack/bin/webpack.js --watch"
   },
   "author": "AJ Farkas",
   "license": "MIT",
@@ -28,7 +29,8 @@
     "eslint-plugin-react": "^7.10.0",
     "npm": "^6.2.0",
     "prop-types": "^15.6.2",
-    "webpack": "^4.16.1"
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
   },
   "babel": {
     "presets": [

@@ -13,8 +13,8 @@ class LoginComponent extends React.Component {
 		this.props.addToken(token);
 	}
 
-	test = () => {
-		const req = new Request('https://api.github.com/user', {
+	fetchRepos = () => {
+		const req = new Request('https://api.github.com/user/repos', {
 			method: 'GET',
 			headers: this.props.headers,
 		});
@@ -22,7 +22,7 @@ class LoginComponent extends React.Component {
 		fetch(req)
 			.then(res => res.json())
 			.then(data => {
-				window.data = data;
+				window.repos = data;
 				document.getElementById('console').innerText = JSON.stringify(data);
 			});
 	}
@@ -33,7 +33,7 @@ class LoginComponent extends React.Component {
 				<p>enter auth token</p>
 				<input type="text" onBlur={this.login}/>
 			</label>
-			<button onClick={this.test}>Test</button>
+			<button onClick={this.fetchRepos}>fetch repos</button>
 			<div id="console"></div>
 		</div>;
 	}
