@@ -33,9 +33,32 @@ class PageComponent extends React.Component {
 
 	selectRepo = (id) => {
 		this.setState({ activeRepo: (id).toString() });
+
+		this.fetchIssues(this.state.repos[id]);
+	}
+
+	fetchIssues = (repo) => {
+		const req = new Request(repo.issues_url.replace('{/number}', ''), {
+			method: 'GET',
+			headers: this.headers,
+		});
+
+		fetch(req)
+			.then(res => res.json())
+			.then(this.updateIssues);
+	}
+
+	updateIssues = (data) => {
+		const issues = Object.assign({}, this.state.issues);
+		issues[this.state.activeRepo] = data;
+
+		this.setState({
+			issues: issues,
+		});
 	}
 
 	render() {
+		const activeIssues = this.state.issues[this.state.activeRepo] || [];
 		return <div>
 			<Login
 				addToken={this.addAuthToken}
@@ -48,7 +71,7 @@ class PageComponent extends React.Component {
 				activeRepo={this.state.activeRepo}
 			/>
 			<Issues
-				issues={this.state.issues}
+				issues={activeIssues}
 			/>
 		</div>;
 	}
