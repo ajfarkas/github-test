@@ -58,22 +58,29 @@ class PageComponent extends React.Component {
 	}
 
 	render() {
-		const activeIssues = this.state.issues[this.state.activeRepo] || [];
-		return <div>
-			<Login
+		if (!this.headers.Authorization) {
+			return <Login
 				addToken={this.addAuthToken}
 				headers={this.headers}
 				updateRepos={this.updateRepos}
-			/>
-			<Repos
-				repos={this.state.repos}
-				selectRepo={this.selectRepo}
-				activeRepo={this.state.activeRepo}
-			/>
-			<Issues
-				issues={activeIssues}
-			/>
-		</div>;
+			/>;
+		}
+		const activeIssues = this.state.issues[this.state.activeRepo];
+		let issues = null;
+		if (this.state.activeRepo) {
+			issues = <Issues issues={activeIssues || []} loading={!activeIssues}/>;
+		}
+
+		return (
+			<div className="logged-in">
+				<Repos
+					repos={this.state.repos}
+					selectRepo={this.selectRepo}
+					activeRepo={this.state.activeRepo}
+				/>
+				{issues}
+			</div>
+		);
 	}
 }
 

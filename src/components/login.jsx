@@ -19,14 +19,15 @@ function LoginComponent(props) {
 			.then(props.updateRepos);
 	};
 
-	return <div>
-		<label>
-			<p>enter auth token</p>
-			<input type="text" onBlur={login}/>
-		</label>
-		<button onClick={fetchRepos}>fetch repos</button>
-		<div id="console"></div>
-	</div>;
+	return (
+		<section className="login">
+			<label>
+				<p className="label">enter auth token</p>
+				<input type="password" onBlur={login}/>
+			</label>
+			<button onClick={fetchRepos}>Log In</button>
+		</section>
+	);
 }
 
 export default LoginComponent;

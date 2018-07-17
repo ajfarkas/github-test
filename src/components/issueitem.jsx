@@ -5,8 +5,8 @@ function IssueItem(props) {
 	return (
 		<li className="issue">
 			<a className="issue-link" href={props.issue.html_url}>
-				<h3>{props.issue.title}</h3>
-				<p>{props.issue.body}</p>
+				<h4>{props.issue.title}</h4>
+				<p className="issue-body">{props.issue.body}</p>
 			</a>
 		</li>);
 }

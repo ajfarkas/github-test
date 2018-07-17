@@ -12,9 +12,14 @@ function RepoListComponent(props) {
 		/>
 	));
 
-	return <div>
-		{repos}
-	</div>;
+	return (
+		<section className="repo-section">
+			<h2>Repositories</h2>
+			<ul className="repos">
+				{repos}
+			</ul>
+		</section>
+	);
 }
 
 export default RepoListComponent;
