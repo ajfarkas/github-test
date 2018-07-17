@@ -1,42 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class LoginComponent extends React.Component {
-	constructor(props) {
-		super(props);
+function LoginComponent(props) {
 
-		this.state = {};
-	}
-
-	login = (e) => {
+	const login = (e) => {
 		const token = e.currentTarget.value;
-		this.props.addToken(token);
-	}
+		props.addToken(token);
+	};
 
-	fetchRepos = () => {
+	const fetchRepos = () => {
 		const req = new Request('https://api.github.com/user/repos', {
 			method: 'GET',
-			headers: this.props.headers,
+			headers: props.headers,
 		});
 
 		fetch(req)
 			.then(res => res.json())
-			.then(data => {
-				window.repos = data;
-				document.getElementById('console').innerText = JSON.stringify(data);
-			});
-	}
+			.then(props.updateRepos);
+	};
 
-	render() {
-		return <div>
-			<label>
-				<p>enter auth token</p>
-				<input type="text" onBlur={this.login}/>
-			</label>
-			<button onClick={this.fetchRepos}>fetch repos</button>
-			<div id="console"></div>
-		</div>;
-	}
+	return <div>
+		<label>
+			<p>enter auth token</p>
+			<input type="text" onBlur={login}/>
+		</label>
+		<button onClick={fetchRepos}>fetch repos</button>
+		<div id="console"></div>
+	</div>;
 }
 
 export default LoginComponent;
@@ -44,4 +34,5 @@ export default LoginComponent;
 LoginComponent.propTypes = {
 	addToken: PropTypes.func,
 	headers: PropTypes.object,
+	updateRepos: PropTypes.func,
 };
