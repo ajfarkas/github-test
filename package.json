@@ -1,0 +1,45 @@
+{
+  "name": "chegg-test",
+  "version": "0.1.0",
+  "description": "Welcome to the docs!",
+  "main": "app.js",
+  "scripts": {
+    "bundle": "webpack"
+  },
+  "author": "AJ Farkas",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.13.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^4",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "npm": "^6.2.0",
+    "prop-types": "^15.6.2",
+    "webpack": "^4.16.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
+      "react",
+      "stage-1"
+    ]
+  }
+}
