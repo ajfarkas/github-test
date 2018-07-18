@@ -9,6 +9,9 @@ function LoginComponent(props) {
 	};
 
 	const fetchRepos = () => {
+		const loginEl = document.querySelector('.login');
+		loginEl.classList.add('is-active');
+
 		const req = new Request('https://api.github.com/user/repos', {
 			method: 'GET',
 			headers: props.headers,
@@ -16,7 +19,10 @@ function LoginComponent(props) {
 
 		fetch(req)
 			.then(res => res.json())
-			.then(props.updateRepos);
+			.then(props.updateRepos)
+			.catch(() => {
+				loginEl.classList.remove('is-active');
+			});
 	};
 
 	return (
@@ -27,7 +33,7 @@ function LoginComponent(props) {
 					<p className="label">enter auth token</p>
 					<input type="password" onBlur={login}/>
 				</label>
-				<button className="login-btn" onClick={fetchRepos}>Log In</button>
+				<button type="button" className="login-btn" onClick={fetchRepos}>Log In</button>
 			</form>
 		</section>
 	);

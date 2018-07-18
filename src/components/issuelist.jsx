@@ -3,7 +3,7 @@ import Issue from './issueitem.jsx';
 import PropTypes from 'prop-types';
 
 function IssueListComponent(props) {
-	const issues = props.issues.map(issue => (
+	let issues = props.issues.map(issue => (
 		<Issue issue={issue} key={issue.id}/>
 	));
 
@@ -11,9 +11,13 @@ function IssueListComponent(props) {
 		return (
 			<section className="issue-section">
 				<div className="loading-icon"></div>
+				<p>Loading…</p>
 			</section>
 		);
+	} else if (!issues.length) {
+		issues = <p>Issue free!</p>;
 	}
+
 	return (
 		<section className="issue-section">
 			<h2>Issues</h2>
