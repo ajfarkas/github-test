@@ -21,11 +21,14 @@ function LoginComponent(props) {
 
 	return (
 		<section className="login">
-			<label>
-				<p className="label">enter auth token</p>
-				<input type="password" onBlur={login}/>
-			</label>
-			<button onClick={fetchRepos}>Log In</button>
+			<h1>Issue Tracker</h1>
+			<form>
+				<label>
+					<p className="label">enter auth token</p>
+					<input type="password" onBlur={login}/>
+				</label>
+				<button className="login-btn" onClick={fetchRepos}>Log In</button>
+			</form>
 		</section>
 	);
 }

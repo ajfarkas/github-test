@@ -1,1 +1,95 @@
+* {
+	margin: 0;
+}
 
+html {
+	/* allows me to write rems as px*10^-1 */
+	font-size: 62.5%;
+	font-family: Montserrat, Helvetica, sans-serif;
+	color: #2d2d2d;
+}
+
+h1 {
+	font-size: 2.4rem;
+	font-weight: 600;
+}
+
+h2 {
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.4rem;
+	font-weight: 600;
+}
+
+p {
+	font-size: 1.4rem;
+}
+
+a {
+
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+}
+
+.label {
+	text-transform: capitalize;
+}
+
+button,
+input {
+	-webkit-appearance: none;
+		 -moz-appearance: none;
+					appearance: none;
+	padding: 6px 8px;
+	border-radius: 3px;
+	border: 1px solid #8f8f8f;
+	background-color: white;
+	box-shadow: 1px 1px 0 0 rgba(0,0,0,0.1);
+	font-size: 1.4rem;
+	color: #2d2d2d;
+}
+[type="password"] {
+	width: 10em;
+}
+
+ul {
+
+}
+
+li {
+
+}
+
+main {
+	width: 100%;
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login {
+	max-width: 500px;
+	height: 100%;
+	min-height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+	padding: 40px;
+	text-align: center;
+}
+
+.login-btn {
+	display: inline-block;
+	margin-top: 8px;
+}
